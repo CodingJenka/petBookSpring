@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.jenka</groupId>
+  <artifactId>petBookSpring</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>petBookSpring</name>
+  <description>make a stylish pet appointment</description>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.7.15</version>
+        <relativePath/> <!-- lookup parent from repository -->
+  </parent>
+
+  <properties>
+    <main.basedir>${project.basedir}</main.basedir>
+    <java.version>17</java.version>
+    <build-plugin.jacoco.version>0.8.10</build-plugin.jacoco.version>
+  </properties>
+  <modules>
+    <module>frontend</module>
+    <module>backend</module>
+  </modules>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>${build-plugin.jacoco.version}</version>
+        <executions>
+          <!-- Prepares the property pointing to the JaCoCo
+                    runtime agent which is passed as VM argument when Maven the Surefire plugin
+                    is executed. -->
+          <execution>
+            <id>pre-unit-test</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <!-- Ensures that the code coverage report for
+                    unit tests is created after unit tests have been run. -->
+          <execution>
+            <id>post-unit-test</id>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+<!--  <dependencies>-->
+
+<!--        <dependency>-->
+<!--          <groupId>org.springframework</groupId>-->
+<!--          <artifactId>spring-web</artifactId>-->
+<!--          <version>6.1.0</version>-->
+<!--        </dependency>-->
+
+    <!--    <dependency>-->
+    <!--      <groupId>org.springframework.boot</groupId>-->
+    <!--      <artifactId>spring-boot-devtools</artifactId>-->
+    <!--      <scope>runtime</scope>-->
+    <!--      <optional>true</optional>-->
+    <!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--      <groupId>org.projectlombok</groupId>-->
+    <!--      <artifactId>lombok</artifactId>-->
+    <!--      <optional>true</optional>-->
+    <!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>org.springframework.boot</groupId>-->
+<!--      <artifactId>spring-boot-starter-test</artifactId>-->
+<!--      <scope>test</scope>-->
+<!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--      <groupId>org.springframework.modulith</groupId>-->
+    <!--      <artifactId>spring-modulith-starter-test</artifactId>-->
+    <!--      <scope>test</scope>-->
+    <!--    </dependency>-->
+    <!--  </dependencies>-->
+    <!--  <dependencyManagement>-->
+    <!--    <dependencies>-->
+    <!--      <dependency>-->
+    <!--        <groupId>org.springframework.modulith</groupId>-->
+    <!--        <artifactId>spring-modulith-bom</artifactId>-->
+    <!--        <version>1.0.2</version>-->
+    <!--        <type>pom</type>-->
+    <!--        <scope>import</scope>-->
+    <!--      </dependency>-->
+<!--  </dependencies>-->
+  <!--  </dependencyManagement>-->
+
+<!--  <build>-->
+<!--    <plugins>-->
+<!--      <plugin>-->
+<!--        <groupId>org.springframework.boot</groupId>-->
+<!--        <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--        <configuration>-->
+<!--          <image>-->
+<!--            <builder>paketobuildpacks/builder-jammy-base:latest</builder>-->
+<!--          </image>-->
+<!--          <excludes>-->
+<!--            <exclude>-->
+<!--              <groupId>org.projectlombok</groupId>-->
+<!--              <artifactId>lombok</artifactId>-->
+<!--            </exclude>-->
+<!--          </excludes>-->
+<!--        </configuration>-->
+<!--      </plugin>-->
+<!--    </plugins>-->
+<!--  </build>-->
+
+</project>
